@@ -1,0 +1,264 @@
+:root {
+  --color-brand--1: #ffb545;
+  --color-brand--2: #00c46a;
+  --color-dark--1: #2d3439;
+  --color-dark--2: #42484d;
+  --color-light--1: #aaa;
+  --color-light--2: #ececec;
+  --color-light--3: rgb(214, 222, 224);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--color-light--2);
+  font-weight: 400;
+  line-height: 1.6;
+  overscroll-behavior-y: none;
+  padding: 2.5rem;
+  display: grid;
+}
+
+a:link,
+a:visited {
+  color: var(--color-brand--1);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.row {
+  background-color: #2D3439;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: calc(100vh - 5rem);
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--color-dark--1);
+  height: inherit;
+  position: relative;
+}
+
+.logo {
+  display: block;
+  height: 7rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+}
+
+.workouts {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  width: 90%;
+  margin: auto;
+  overflow-y: auto;
+  padding-bottom: 2rem;
+}
+.workouts .form, .workouts .workout {
+  background-color: var(--color-dark--2);
+  border-radius: 5px;
+  padding: 1.5rem 2.75rem;
+  width: 100%;
+}
+.workouts .form {
+  height: 12rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.5rem 2.5rem;
+  transition: all 0.5s, transform 1ms;
+}
+.workouts .form__row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.workouts .form__label {
+  flex: 0 0 50%;
+  font-size: 1.7rem;
+}
+.workouts .form__input {
+  width: 100%;
+  padding: 0.5rem 1.1rem;
+  font-family: inherit;
+  font-size: 1.4rem;
+  border: none;
+  border-radius: 3px;
+  background-color: var(--color-light--3);
+  transition: all 0.2s;
+}
+.workouts .form__input:focus {
+  background-color: #fff;
+}
+.workouts .workout {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.workouts .workout--cycling {
+  border-left: 5px solid var(--color-brand--1);
+}
+.workouts .workout--running {
+  border-left: 5px solid var(--color-brand--2);
+}
+.workouts .workout__title {
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+.workouts .workout__list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.workouts .workout__icon {
+  font-size: 2rem;
+}
+.workouts .workout__value {
+  font-size: 1.7rem;
+  color: var(--color-light--2);
+}
+.workouts .workout__unit {
+  font-size: 1.3rem;
+  color: var(--color-light--1);
+}
+
+svg {
+  position: absolute;
+  stroke: var(--color-light--3);
+  width: 2rem;
+  height: 2rem;
+  stroke-width: 2.5;
+  cursor: pointer;
+  top: 1.5rem;
+}
+
+.close-btn {
+  fill: transparent;
+  right: 2rem;
+}
+
+.edit-btn {
+  right: 5rem;
+}
+.edit-btn g {
+  fill: var(--color-light--3);
+}
+
+#map {
+  height: 100%;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-popup-close-button {
+  margin-top: 2px;
+}
+.leaflet-popup-close-button span {
+  color: var(--color-light--1);
+  font-size: 1.7rem;
+  font-weight: 600;
+}
+.leaflet-popup-content {
+  width: 20rem !important;
+  color: #fff;
+  text-align: center;
+  text-transform: capitalize;
+}
+.leaflet-popup-content-wrapper {
+  font-size: 1.5rem;
+}
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: var(--color-dark--2) !important;
+}
+
+.details {
+  margin-top: 2rem;
+}
+
+.current__timer {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.7rem;
+}
+
+.running-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--2);
+}
+
+.cycling-popup .leaflet-popup-content-wrapper {
+  border-left: 5px solid var(--color-brand--1);
+}
+
+.hidden {
+  transform: translateX(-38rem);
+  opacity: 0 !important;
+  height: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 0 2.25rem !important;
+}
+
+.form__label span {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 50em) {
+  html {
+    font-size: 45%;
+  }
+  .row {
+    grid-template-columns: 0.85fr 2fr;
+  }
+  svg {
+    width: 2rem;
+  }
+  .workout__title {
+    font-size: 1.2rem !important;
+  }
+}
+.clear--btn {
+  margin-top: 3rem;
+  width: 4rem;
+  display: none;
+  cursor: pointer;
+}
+
+.sortBtn {
+  cursor: pointer;
+  fill: rgba(0, 196, 106, 0.5);
+  width: 3rem;
+  height: 3rem;
+  position: absolute;
+  left: 2rem;
+  top: 25%;
+}
+
+.hiddenBtn {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
